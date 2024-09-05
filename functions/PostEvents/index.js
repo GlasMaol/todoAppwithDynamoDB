@@ -5,8 +5,9 @@ const { v4: uuid } = require('uuid');
 exports.handler = async (event) => {
 
     try {
-      const { artist, date, price, times, venu } = JSON.parse(event.body);
+      const { artist, date, venu, times, price } = JSON.parse(event.body);
 
+      //checks whether all fields are entered.
       if(!artist || !date || !venu || !times || !price) {
         return sendError(400, { succes : false, message : 'Missing required fields' });
       }
@@ -21,7 +22,7 @@ exports.handler = async (event) => {
           date: date,
           venu: venu,
           times: times,
-          price: price, 
+          price: price
         }
       });
       return sendResponse(200, { success: true })

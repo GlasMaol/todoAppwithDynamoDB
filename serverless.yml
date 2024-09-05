@@ -20,10 +20,17 @@ functions:
       - httpApi:
           path: /api/events
           method: get
-          
+
   PostEvents:
     handler: functions/PostEvents/index.handler
     events:
       - httpApi:
           path: /api/events
+          method: post
+
+  CreateTickets:
+    handler: functions/CreateTickets/index.handler
+    events:
+      - httpApi:
+          path: /api/events/{id}/tickets
           method: post

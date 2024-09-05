@@ -14,7 +14,7 @@ function sendError(status, data) {
         headers: {
             'Content-Type' : 'application/json'
         },
-        body: JSON.stringify({sucess : false,data})
+        body: JSON.stringify({success : false, data})
     }
 }
 
