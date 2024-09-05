@@ -10,11 +10,20 @@ provider:
   runtime: nodejs20.x
   region: eu-north-1
   deploymentMethod: direct
+  iam:
+    role: arn:aws:iam::727646498491:role/lambdaDynamoDBAccess
 
 functions:
-  hello:
-    handler: handler.hello
+  GetEvents:
+    handler: functions/GetEvents/index.handler
     events:
       - httpApi:
-          path: /
+          path: /api/events
           method: get
+          
+  PostEvents:
+    handler: functions/PostEvents/index.handler
+    events:
+      - httpApi:
+          path: /api/events
+          method: post
